@@ -4,10 +4,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from .forms import SignInForm, AuthenticateForm
+from .forms import QuizzCreationForm, SignInForm, AuthenticateForm, QuizzCreationForm
+from .models import *
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
 
 def signNewUser(request):
     if request.method == "POST":
@@ -43,3 +42,23 @@ def logoutpage(request):
     if request.method == "POST":
         logout(request)
         return redirect('Welcomepage')
+
+def Quizzlistpage(request):
+    quizzlist = Quizz.objects.all()
+    return render(request, 'QuizzList.html', {'quizzlist': quizzlist})
+
+def Quizzcreationpage(request):
+    if request.method == "POST":
+        form = QuizzCreationForm(request.POST)
+        if form.is_valid():
+            try:
+                savequizz = Quizz(nom = request.POST.get('nom'), categorie = Categorie.objects.get(id=request.POST.get('categorie')), createur= request.user)
+                savequizz.save()
+                return render(request, 'QuizzCreation.html', {'form':form, 'info':'Le quizz a été créé..!'})
+            except IntegrityError:
+                return render(request, 'QuizzCreation.html', {'form':form, 'error':'Le quizz existe deja..!'})
+        else:
+            return render(request, 'QuizzCreation.html', {'form':form, 'error':'ERREUR le quizz n\'as pas été créé..!'})
+    else:
+        form = QuizzCreationForm()
+    return render(request, 'QuizzCreation.html', {'form':form})
