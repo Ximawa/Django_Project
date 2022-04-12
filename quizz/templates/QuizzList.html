@@ -11,6 +11,11 @@
     <form method="POST" action="{% url 'Quizzcreationpage'%}">
         {% csrf_token %}
     <input type="submit" value="Creer un quizz" />
+    </form>
+    <form method="POST" action="{% url 'QuestionAjoutpage'%}">
+        {% csrf_token %}
+    <input type="submit" value="Ajouter une question à un quizz" />
+    </form>
     <br>
     {% for quizz in quizzlist%}
         {{ quizz }}

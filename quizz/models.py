@@ -19,15 +19,9 @@ class Quizz(models.Model):
 
 class Question(models.Model):
     question_text = models.CharField(max_length = 200)
+    reponse_text = models.CharField(max_length = 200)
     quizz = models.ForeignKey(Quizz, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.question_text
 
-class Reponse(models.Model):
-    reponse_text = models.CharField(max_length=100)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    reponse_valeur = models.BooleanField()
-
-    def __str__(self):
-        return self.reponse_text

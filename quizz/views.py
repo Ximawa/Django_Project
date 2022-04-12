@@ -1,10 +1,9 @@
 from django.db import IntegrityError
-from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 
-from .forms import QuizzCreationForm, SignInForm, AuthenticateForm, QuizzCreationForm
+from .forms import *
 from .models import *
 
 
@@ -62,3 +61,20 @@ def Quizzcreationpage(request):
     else:
         form = QuizzCreationForm()
     return render(request, 'QuizzCreation.html', {'form':form})
+
+
+def QuestionAjoutpage(request):
+    if request.method == "POST":
+        form = QuestionAjoutForm(request.POST)
+        if form.is_valid():
+            try:
+                savequestion = Question(question_text = request.POST.get('question_text'), reponse_text = request.POST.get('reponse_text'), quizz = Quizz.objects.get(id=request.POST.get('quizz')))
+                savequestion.save()
+                return render(request, 'QuestionAjout.html', {'form':form, 'info':'La question a été créé..!'})
+            except IntegrityError:
+                return render(request, 'QuestionAjout.html', {'form':form, 'error':'La question existe deja..!'})
+        else:
+            return render(request, 'QuestionAjout.html', {'form':form, 'error':'ERREUR la question n\'as pas été créé..!'})
+    else:
+        form = QuizzCreationForm()
+    return render(request, 'QuestionAjout.html', {'form':form})
