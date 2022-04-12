@@ -9,10 +9,17 @@ class Categorie(models.Model):
     def __str__(self):
         return self.nom
 
-class Question(models.Model):
-    question_text = models.CharField(max_length = 200)
+class Quizz(models.Model):
+    nom = models.CharField(max_length=200)
     categorie = models.ForeignKey(Categorie, on_delete=models.CASCADE)
     createur = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nom
+
+class Question(models.Model):
+    question_text = models.CharField(max_length = 200)
+    quizz = models.ForeignKey(Quizz, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.question_text
