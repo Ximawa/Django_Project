@@ -89,6 +89,6 @@ def QuizzDetails(request, quizz_id):
         for question in questionList:
             if score is None:
                 score = 0
-            if request.POST.get('reponse'+str(question.id)) == question.reponse_text:
+            if request.POST.get('reponse'+str(question.id)).lower() == question.reponse_text.lower():
                 score += 1
     return render(request, 'QuizzDetails.html', {'quizz': quizz, 'questionList': questionList, 'score': score})
