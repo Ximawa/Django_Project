@@ -84,4 +84,11 @@ def QuestionAjoutpage(request):
 def QuizzDetails(request, quizz_id):
     quizz = get_object_or_404(Quizz, pk=quizz_id)
     questionList = Question.objects.filter(quizz = quizz_id)
-    return render(request, 'QuizzDetails.html', {'quizz': quizz, 'questionList': questionList})
+    score = None
+    if request.method == "POST":
+        for question in questionList:
+            if score is None:
+                score = 0
+            if request.POST.get('reponse'+str(question.id)) == question.reponse_text:
+                score += 1
+    return render(request, 'QuizzDetails.html', {'quizz': quizz, 'questionList': questionList, 'score': score})
