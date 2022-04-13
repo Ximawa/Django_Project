@@ -7,20 +7,24 @@
     <title>SignIn</title>
 </head>
 <body>
-    <center>
-        <h1>Question pour un bifton</h1>
-        <h3>Creation d'un nouvel utilisateur</h3>
-        <hr/>
-        <form method="POST">
-            {% csrf_token %}
-            <table border="1">
-                {{ form }}
-            </table>
-            <button type="submit">Valider</button> | <a href="{% url 'loginuser'%}">Login</a>
-            <h2 style="color: red;">{{ error }}</h1>
-            <h2 style="color: green;">{{ info }}</h1>
-        </form>
-        
-    </center>
+    {% include "nav.html" %}
+    <main>
+        <center>
+            <h1>Question pour un bouffon</h1>
+            <h3>Creation d'un nouvel utilisateur</h3>
+            <hr/>
+            <form method="POST">
+                {% csrf_token %}
+                <table border="1">
+                    {{ form }}
+                </table>
+                <button type="submit">Valider</button> | <a href="{% url 'loginuser'%}">Login</a>
+                <h2 style="color: red;">{{ error }}</h1>
+                <h2 style="color: green;">{{ info }}</h1>
+            </form>
+            
+        </center>
+    </main> 
+    {% include "footers.html" %}   
 </body>
 </html>

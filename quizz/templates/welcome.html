@@ -7,31 +7,18 @@
     <title>Welcome</title>
 </head>
     <body>
+        {% include "nav.html" %}
 
    
+        <main>
+            {% if user.is_authenticated %}
+                <h1>Bienvenue {{ user.username }}</h1>
+                <h2>Vous êtes connecté ..!</h2>
 
-        {% if user.is_authenticated %}
-
-            {% block nav_connect %}
-                <ul id="nav_connect">
-                    <li>{% block nav-home_connect %}<a href="{% url 'Welcomepage' %}">Home</a>{% endblock %}</li>
-                </ul>    
-            {% endblock %}
-
-            <h1>Bienvenue {{ user.username }}</h1>
-            <h2>Vous êtes connecté ..!</h2>
-            <form method="POST" action="{% url 'logoutpage'%}">
-                {% csrf_token %}
-            <input type="submit" value="Logout" />
-            </form>
-            {% else %}
-                {% block nav %}
-                    <ul id="nav">
-                        <li>{% block nav-Home %}<a href="{% url 'Welcomepage' %}">Home</a>{% endblock %}</li>
-                        <li>{% block nav-loginuser %}<a href="{% url 'loginuser'%}">Login</a>{% endblock %}</li>
-                        <li>{% block nav-signup %}<a href="{% url 'signNewUser'%}">SignUp</a>{% endblock %}</li>
-                    </ul>    
-                {% endblock %}
-        {% endif%}
+                {% else %}
+                    <h2>Vous n'êtes pas connecté ..!</h2>
+            {% endif%}
+        </main>
+        {% include "footers.html" %}    
     </body>
 </html>
