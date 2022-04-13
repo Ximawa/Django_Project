@@ -47,6 +47,10 @@ def Quizzlistpage(request):
     quizzlist = Quizz.objects.all()
     return render(request, 'QuizzList.html', {'quizzlist': quizzlist})
 
+def Categorielistpage(request):
+    categorielist = Categorie.objects.all()
+    return render(request, 'categoriesList.html', {'categorielist': categorielist})
+
 def Quizzcreationpage(request):
     if request.method == "POST":
         form = QuizzCreationForm(request.POST)
