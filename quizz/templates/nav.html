@@ -13,6 +13,7 @@
                 <ul id="nav_connect">
                     <li>{% block nav-home_connect %}<a href="{% url 'Welcomepage' %}">Home</a>{% endblock %}</li>
                     <li>{% block nav-Quizz_connect %}<a href="{% url 'Quizzlistpage' %}">Quizz list</a>{% endblock %}</li>
+                    <li>{% block nav-Cat_connect %}<a href="{% url 'Categorielistpage' %}">Categorie list</a>{% endblock %}</li>
                     <li>{% block nav-deco %}<form method="POST" action="{% url 'logoutpage'%}">
                             {% csrf_token %}
                         <input type="submit" value="Logout" />
