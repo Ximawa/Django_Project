@@ -77,7 +77,7 @@ def QuestionAjoutpage(request):
         else:
             return render(request, 'QuestionAjout.html', {'form':form, 'error':'ERREUR la question n\'as pas été créé..!'})
     else:
-        form = QuizzCreationForm()
+        form = QuestionAjoutForm()
     return render(request, 'QuestionAjout.html', {'form':form})
 
 
