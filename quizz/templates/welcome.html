@@ -2,38 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style_welcome.css' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
 </head>
-<body>
-    {% if user.is_authenticated %}
-    <form method="POST" action="{% url 'logoutpage'%}">
-        {% csrf_token %}
-    <input type="submit" value="Logout" />
-    <a href="{% url 'Quizzlistpage'%}">Liste des Quizz</a>
-    </form>
-    <div class="container">
-        <h1 class="neonText">
-            Bienvenue {{ user.username }}
-        </h1>
-        <h2 class="neonText">Vous êtes connecté ..!</h2> 
-    
-    </div>
-    <img class="fond" src="{% static 'image/quizz.png' %}">
-    {% else %}
-    <a href="{% url 'loginuser'%}">LogIn</a>
-    <a href="{% url 'signNewUser'%}">SignUp</a>
-    <a href="{% url 'Quizzlistpage'%}">Liste des Quizz</a>
-    <div class="container">
-        <h1 class="neonText">
-            Bonjour
-        </h1>
-        <h2 class="neonText">Vous pouvez vous connecter ou vous inscrire</h2>
-    </div>
-    <img class="fond" src="{% static 'image/quizz.png' %}">
-    {% endif%}
-</body>
-</html>
+    <body>
+        {% include "nav.html" %}
+
+   
+        <main>
+            {% if user.is_authenticated %}
+                <h1>Bienvenue {{ user.username }}</h1>
+                <h2>Vous êtes connecté ..!</h2>
+
+                {% else %}
+                    <h2>Vous n'êtes pas connecté ..!</h2>
+            {% endif%}
+        </main>
+        {% include "footers.html" %}    
+    </body>

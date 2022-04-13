@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Welcome</title>
     </head>
-    <body>
+    <header>
         {% if user.is_authenticated %}
 
             {% block nav_connect %}
@@ -29,5 +29,5 @@
                     </ul>    
                 {% endblock %}
         {% endif%}
-    </body>
+    </header>
 </html>        

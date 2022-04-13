@@ -7,21 +7,25 @@
     <title>{{ quizz }}</title>
 </head>
 <body>
-    <h1>{{ quizz }}</h1>
-    {% if score is not None %}
-    <h2>Votre score est {{ score }}</h2>
-    {% else %}
-    <form method="POST" action="{% url 'QuizzDetails' quizz_id=quizz.id%}">
-        {% csrf_token %}
-    {% for question in questionList %}
-    {{ question }}
-    <br>
-    <label for="reponse{{ question.id }}">Reponse :</label>
-    <input type="text" name="reponse{{ question.id }}" id="reponse{{ question.id }}" required><br>
-    
-    {% endfor %}
-    <input type="submit" value="Repondre">
-    </form>
-    {% endif %}
+    {% include "nav.html" %}
+    <main>
+        <h1>{{ quizz }}</h1>
+        {% if score is not None %}
+        <h2>Votre score est {{ score }}</h2>
+        {% else %}
+        <form method="POST" action="{% url 'QuizzDetails' quizz_id=quizz.id%}">
+            {% csrf_token %}
+        {% for question in questionList %}
+        {{ question }}
+        <br>
+        <label for="reponse{{ question.id }}">Reponse :</label>
+        <input type="text" name="reponse{{ question.id }}" id="reponse{{ question.id }}" required><br>
+        
+        {% endfor %}
+        <input type="submit" value="Repondre">
+        </form>
+        {% endif %}
+    </main> 
+    {% include "footers.html" %}   
 </body>
 </html>

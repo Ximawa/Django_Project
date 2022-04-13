@@ -1,32 +1,38 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style_login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'quizz/style.css' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
 <body>
-    <center>
-        <h1 class="color">Question pour un bifton</h1>
-        <h3 class="color">Connexion</h3>
-        <hr/>
-        <div class="login-box">
-        <form method="POST">
-            {% csrf_token %}
-            <table class="color" border="1">
-                {{ form }}
-            </table>
-        
-        <div class="a">
-            <button type="submit"><strong>Valider</strong></button>
-            <h2 style="color: red;">{{ error }}</h1>
+    {% include "nav.html" %}
+    <main>
+        <center>
+            <h1 class="color">Question pour un bouffon</h1>
+            <h3 class="color">Connexion</h3>
+            <hr/>
+            <div class="login-box">
+            <form method="POST">
+                {% csrf_token %}
+                <table class="color" border="1">
+                    {{ form }}
+                </table>
+            
+            <div class="a">
+                <button type="submit"><strong>Valider</strong></button>
+                <h2 style="color: red;">{{ error }}</h1>
+                </div>
             </div>
-        </div>
-        </form>
-    </center>
-    
+            </form>
+        </center>
+    </main>    
+    {% include "footers.html" %}
 </body>
+
 </html>
+
