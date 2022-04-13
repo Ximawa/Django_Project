@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'quizz/style.css' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Ajout Question</title>
 </head>
 <body>
     <center>
         <h1>Question pour un bifton</h1>
-        <h3>Connexion</h3>
-        <hr/>
+        <h3>Ajout de question à un quizz</h3>
+        <hr/>     
         <form method="POST">
             {% csrf_token %}
             <table border="1">
@@ -20,9 +18,7 @@
             </table>
             <button type="submit">Valider</button>
             <h2 style="color: red;">{{ error }}</h1>
-        </form>
-        <img class="fond" src="https://mobile.interieur.gouv.fr/var/miomcti/storage/images/www.interieur.gouv.fr/version-fre/actualites/l-actu-du-ministere/bac-2019-les-resultats-de-notre-quizz/941648-1-fre-FR/Bac-2019-les-resultats-de-notre-quizz_catcher.png">
+            <h2 style="color: green;">{{ info }}</h1>
     </center>
-    
 </body>
 </html>

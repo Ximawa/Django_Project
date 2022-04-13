@@ -13,10 +13,12 @@
     <form method="POST" action="{% url 'logoutpage'%}">
         {% csrf_token %}
     <input type="submit" value="Logout" />
+    <a href="{% url 'Quizzlistpage'%}">Liste des Quizz</a>
     </form>
     {% else %}
     <a href="{% url 'loginuser'%}">LogIn</a>
     <a href="{% url 'signNewUser'%}">SignUp</a>
+    <a href="{% url 'Quizzlistpage'%}">Liste des Quizz</a>
     {% endif%}
 </body>
 </html>
