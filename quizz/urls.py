@@ -9,5 +9,6 @@ urlpatterns = [
     path('Logout', views.logoutpage, name="logoutpage"),
     path('QuizzList', views.Quizzlistpage, name="Quizzlistpage"),
     path('QuizzCreation', views.Quizzcreationpage, name="Quizzcreationpage"),
-    path('QuestionAjout', views.QuestionAjoutpage, name="QuestionAjoutpage")
+    path('QuestionAjout', views.QuestionAjoutpage, name="QuestionAjoutpage"),
+    path('QuizzDetails/<int:quizz_id>', views.QuizzDetails, name="QuizzDetails")
 ]

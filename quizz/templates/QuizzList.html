@@ -14,9 +14,10 @@
     <a href="{% url 'QuestionAjoutpage'%}">Ajouter question a un quizz</a>
     {% endif%}
     <br>
+    <ul>
     {% for quizz in quizzlist%}
-        {{ quizz }}
-        <br>
+        <li><a href="{% url 'QuizzDetails' quizz_id=quizz.id%}">{{ quizz }}</a></li>
     {% endfor %}
+    </ul>
 </body>
 </html>
