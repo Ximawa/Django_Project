@@ -10,18 +10,22 @@
 </head>
 <body>
     <center>
-        <h1>Question pour un bifton</h1>
-        <h3>Connexion</h3>
+        <h1 class="color">Question pour un bifton</h1>
+        <h3 class="color">Connexion</h3>
         <hr/>
+        <div class="login-box">
         <form method="POST">
             {% csrf_token %}
-            <table border="1">
+            <table class="color" border="1">
                 {{ form }}
             </table>
-            <button type="submit">Valider</button>
+        
+        <div class="a">
+            <button type="submit"><strong>Valider</strong></button>
             <h2 style="color: red;">{{ error }}</h1>
+            </div>
+        </div>
         </form>
-        <img class="fond" src="{% static 'image/quizz.png' %}">
     </center>
     
 </body>
