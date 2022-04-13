@@ -2,6 +2,7 @@ from django.db import IntegrityError
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
+from django.http import HttpResponse
 
 from .forms import *
 from .models import *
@@ -78,3 +79,9 @@ def QuestionAjoutpage(request):
     else:
         form = QuizzCreationForm()
     return render(request, 'QuestionAjout.html', {'form':form})
+
+
+def QuizzDetails(request, quizz_id):
+    quizz = get_object_or_404(Quizz, pk=quizz_id)
+    questionList = Question.objects.filter(quizz = quizz_id)
+    return render(request, 'QuizzDetails.html', {'quizz': quizz, 'questionList': questionList})
