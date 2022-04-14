@@ -7,17 +7,21 @@
     <title>Liste des Quizz</title>
 </head>
 <body>
-    <h1>Liste des Quizz</h1>
-    {% if user.is_authenticated %}
-    <a href="{% url 'Quizzcreationpage'%}">Creer un quizz</a>
-    <br>
-    <a href="{% url 'QuestionAjoutpage'%}">Ajouter question a un quizz</a>
-    {% endif%}
-    <br>
-    <ul>
-    {% for quizz in quizzlist%}
-        <li><a href="{% url 'QuizzDetails' quizz_id=quizz.id%}">{{ quizz }}</a></li>
-    {% endfor %}
-    </ul>
+    {% include "nav.html" %}
+    <main>
+        <h1>Liste des Quizz</h1>
+        {% if user.is_authenticated %}
+        <a href="{% url 'Quizzcreationpage'%}">Creer un quizz</a>
+        <br>
+        <a href="{% url 'QuestionAjoutpage'%}">Ajouter question a un quizz</a>
+        {% endif%}
+        <br>
+        <ul>
+        {% for quizz in quizzlist%}
+            <li><a href="{% url 'QuizzDetails' quizz_id=quizz.id%}">{{ quizz }}</a></li>
+        {% endfor %}
+        </ul>
+    </main>   
+    {% include "footers.html" %} 
 </body>
 </html>
