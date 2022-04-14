@@ -1,0 +1,11 @@
+.parent2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.enfant{
+    color: #03e9f4;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
