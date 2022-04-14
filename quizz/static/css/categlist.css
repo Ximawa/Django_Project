@@ -8,16 +8,7 @@ html
     background-size: 700% 100%;
 
 }
-
-img{
-    display: block;
-    margin: auto;
-    max-width: 100%;
-    max-height: 100%;
-    pointer-events:none;
-}
-
-.neonText {
+  .neonText {
     color: #fff;
     text-shadow:
         0 0 7px #fff,
@@ -58,4 +49,24 @@ footer{
   .colorquizz{
     color: #03e9f4;
     text-align: center;
+  }
+
+a{
+    text-decoration: none;
+}
+
+a{
+    display: block;
+    text-align:right ;
+    color: white;
+}
+  div.b {
+    display: block;
+    vertical-align: middle;
+    margin: 0 auto;
+    width: 40%;
+    border: 1px solid rgb(255, 255, 255);    
+    background: linear-gradient(rgb(84, 121, 139), rgb(146, 108, 115));
+    text-align: center;
+
   }
