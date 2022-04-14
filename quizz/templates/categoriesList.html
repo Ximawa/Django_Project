@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/categlist.css' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des categorie</title>
@@ -9,14 +11,19 @@
 <body>
     {% include "nav.html" %}
     <main>
-        <h1>Liste des Catégories</h1>
+        <h1 class="neonText">
+            Liste des Catégories
+        </h1>
         <br>
-        <ul>
-        {% for categorie in categorielist%}
-            <li><a href="#">{{ categorie }}</a></li>
-            <img src="{{ categorie.image }}">
-        {% endfor %}
-        </ul>
+        
+            {% for categorie in categorielist%}
+                <div class="b">
+                    <img src="{{ categorie.image }}">
+                    <a href="#">{{ categorie }}</a>
+                </div>
+                <br>
+            {% endfor %}
+        
     </main>   
     {% include "footers.html" %} 
 </body>
