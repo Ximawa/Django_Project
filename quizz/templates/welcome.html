@@ -8,32 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
 </head>
-<body>
-    {% if user.is_authenticated %}
-    <form method="POST" action="{% url 'logoutpage'%}">
-        {% csrf_token %}
-    <input type="submit" value="Logout" />
-    <a href="{% url 'Quizzlistpage'%}">Liste des Quizz</a>
-    </form>
-    <div class="container">
-        <h1 class="neonText">
-            Bienvenue {{ user.username }}
-        </h1>
-        <h2 class="neonText">Vous êtes connecté ..!</h2> 
-    
-    </div>
-    <img class="fond" src="{% static 'image/quizz.png' %}">
-    {% else %}
-    <a href="{% url 'loginuser'%}">LogIn</a>
-    <a href="{% url 'signNewUser'%}">SignUp</a>
-    <a href="{% url 'Quizzlistpage'%}">Liste des Quizz</a>
-    <div class="container">
-        <h1 class="neonText">
-            Bonjour
-        </h1>
-        <h2 class="neonText">Vous pouvez vous connecter ou vous inscrire</h2>
-    </div>
-    <img class="fond" src="{% static 'image/quizz.png' %}">
-    {% endif%}
-</body>
-</html>
+    <body>
+        {% include "nav.html" %} 
+        <main>
+            {% if user.is_authenticated %}
+            <div class="container">
+                <h1 class="neonText">
+                    Bienvenue {{ user.username }}
+                </h1>
+                <h2 class="neonText">Vous êtes connecté ..!</h2> 
+            
+            </div>
+            <img class="fond" src="{% static 'image/quizz.png' %}">
+            {% else %}
+            <div class="container">
+                <h1 class="neonText">
+                    Bonjour
+                </h1>
+                <h2 class="neonText">Vous pouvez vous connecter ou vous inscrire</h2>
+            </div>
+            <img class="fond" src="{% static 'image/quizz.png' %}">
+            {% endif%}
+        </main>
+        {% include "footers.html" %}    
+    </body>
