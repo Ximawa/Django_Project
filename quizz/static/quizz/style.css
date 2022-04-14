@@ -177,3 +177,15 @@ html {
   footer{
     margin-top: 36%;
   }
+
+
+  .colorquizz{
+    color: #03e9f4;
+    text-align: center;
+  }
+
+  .colorform{
+    color: #03e9f4;
+    text-align: center;
+    align-items: center;
+  }

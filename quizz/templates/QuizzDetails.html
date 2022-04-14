@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylequizz.css' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ quizz }}</title>
@@ -9,22 +11,29 @@
 <body>
     {% include "nav.html" %}
     <main>
-        <h1>{{ quizz }}</h1>
+        <h1 class="colorquizz">{{ quizz }}</h1>
         {% if score is not None %}
-        <h2>Votre score est {{ score }}</h2>
+        <h2 class="color">Votre score est {{ score }}</h2>
         {% else %}
+        <div class="colorform">
         <form method="POST" action="{% url 'QuizzDetails' quizz_id=quizz.id%}">
             {% csrf_token %}
         {% for question in questionList %}
+        <br><br>
         {{ question }}
         <br>
-        <label for="reponse{{ question.id }}">Reponse :</label>
+        
+        <label class="color" for="reponse{{ question.id }}">Reponse :</label>
         <input type="text" name="reponse{{ question.id }}" id="reponse{{ question.id }}" required><br>
         
         {% endfor %}
+        <br>
+        
         <input type="submit" value="Repondre">
+        </div>
         </form>
         {% endif %}
+    
     </main> 
     {% include "footers.html" %}   
 </body>

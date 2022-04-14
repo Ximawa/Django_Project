@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_welcome.css' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
@@ -12,11 +14,11 @@
    
         <main>
             {% if user.is_authenticated %}
-                <h1>Bienvenue {{ user.username }}</h1>
-                <h2>Vous êtes connecté ..!</h2>
+                <h1 class="colorquizz">Bienvenue {{ user.username }}</h1>
+                <h2 class="colorquizz">Vous êtes connecté ..!</h2>
 
                 {% else %}
-                    <h2>Vous n'êtes pas connecté ..!</h2>
+                    <h2 class="colorquizz">Vous n'êtes pas connecté ..!</h2>
             {% endif%}
         </main>
         {% include "footers.html" %}    

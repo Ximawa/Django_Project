@@ -2,23 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'quizz/style.css' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajout Question</title>
 </head>
 <body>
     <center>
-        <h1>Question pour un bifton</h1>
-        <h3>Ajout de question à un quizz</h3>
+        <h1 class="color">Question pour un bifton</h1>
+        <h3 class="color">Ajout de question à un quizz</h3>
         <hr/>     
+        <div class="login-box">
         <form method="POST">
             {% csrf_token %}
-            <table border="1">
+            <table class="color" border="1">
                 {{ form }}
             </table>
-            <button type="submit">Valider</button>
+            <div class="a">
+            <button type="submit"><strong>Valider</strong></button>
             <h2 style="color: red;">{{ error }}</h1>
             <h2 style="color: green;">{{ info }}</h1>
+            </div>
+        </div>
     </center>
 </body>
 </html>
