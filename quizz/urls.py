@@ -16,5 +16,6 @@ urlpatterns = [
     path('Categorielistpage', views.Categorielistpage, name="Categorielistpage"),
     path('QuizzCreation', views.Quizzcreationpage, name="Quizzcreationpage"),
     path('QuestionAjout', views.QuestionAjoutpage, name="QuestionAjoutpage"),
-    path('QuizzDetails/<int:quizz_id>', views.QuizzDetails, name="QuizzDetails")
+    path('QuizzDetails/<int:quizz_id>', views.QuizzDetails, name="QuizzDetails"),
+    path('QuizzCatelistpage/<int:categorie_id>', views.QuizzCatelistpage, name="QuizzCatelistpage")
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
