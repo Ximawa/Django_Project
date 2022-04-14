@@ -12,6 +12,11 @@
         {% include "nav.html" %} 
         <main>
             {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'logoutpage'%}">
+                {% csrf_token %}
+            <input type="submit" value="Logout" />
+            <a href="{% url 'Quizzlistpage'%}">Liste des Quizz</a>
+            </form>
             <div class="container">
                 <h1 class="neonText">
                     Bienvenue {{ user.username }}
@@ -21,6 +26,9 @@
             </div>
             <img class="fond" src="{% static 'image/quizz.png' %}">
             {% else %}
+            <a href="{% url 'loginuser'%}">LogIn</a>
+            <a href="{% url 'signNewUser'%}">SignUp</a>
+            <a href="{% url 'Quizzlistpage'%}">Liste des Quizz</a>
             <div class="container">
                 <h1 class="neonText">
                     Bonjour
