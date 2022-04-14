@@ -1,0 +1,38 @@
+#container ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: right;
+  }
+  #container ul li {
+    display:inline-block;
+    padding: 5px 10px;
+    
+  }
+  #container ul li a {
+    text-decoration: none;  
+    padding: 5px 20px;
+    color: #fff;
+    background-color: #1c87c9;
+  }
+  #container ul li a:hover {
+    color: #fff;
+    background-color: #369;
+  }
+
+  #container input {
+    display:inline-block;
+    padding: 5px 10px;
+    border: none;
+    
+  }
+  #container input {
+    text-decoration: none;
+    padding: 7px 20px;
+    color: #fff;
+    background-color: #1c87c9;
+  }
+  #container input:hover {
+    color: #fff;
+    background-color: #369;
+  }
