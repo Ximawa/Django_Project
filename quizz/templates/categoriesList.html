@@ -18,8 +18,10 @@
         
             {% for categorie in categorielist%}
                 <div class="b">
-                    <img src="{{ categorie.image }}">
-                    <a href="{% url 'QuizzCatelistpage' categorie_id=categorie.id%}">{{ categorie }}</a>
+                    <a href="{% url 'QuizzCatelistpage' categorie_id=categorie.id%}">
+                        <img src="{{ categorie.image }}">                
+                        <a href="{% url 'QuizzCatelistpage' categorie_id=categorie.id%}">{{ categorie }}</a>
+                    </a>        
                 </div>
                 <br>
             {% endfor %}

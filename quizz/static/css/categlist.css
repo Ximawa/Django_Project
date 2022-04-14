@@ -57,9 +57,10 @@ a{
 
 a{
     display: block;
-    text-align:right ;
+    text-align:center ;
     color: white;
-}
+  }
+
   div.b {
     display: block;
     vertical-align: middle;
